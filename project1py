@@ -1,0 +1,74 @@
+"""
+Soru 1:
+50 soruluk, 4 yanlışın 1 doğruyu götürdüğü sınavda öğrencinin inputlarla girilen doğru yanlış sayısına göre aldığı
+puanı hesaplayan programı yazınız.
+Ogrenci isimli bir sınıf tanımlayınız.
+Bu sınıfın içinde ogrenci_adi, ogrenci_soyadi, ogrenci_ad’ı değişkenleri bulunacaktır. Bu sınıftan nesne
+oluşturulurken bu bilgiler parametre olarak verilecektir.
+Soru diye bir sınıfınız olacaktır. Bu sınıfın net_sayisi ve hesapla isimli iki fonksiyon olacaktır.
+net_sayisi fonksiyonu doğru ve yanlış sayısını parametre olarak alıp öğrencinin kaç neti olduğunu bulacaktır.
+hesapla fonksiyonu net sayısını parametre olarak alıp öğrencinin puanını hesaplayacaktır. Her net 2 puan olacak şekilde
+öğrenci bilgileri ve puanı console ekranında gösterilecektir.
+"""
+
+class Ogrenci:
+
+    def __init__(self, ogrenci_adi, ogrenci_soyadi, ogrenci_sinif):
+        self.ogrenci_adi = ogrenci_adi
+        self.ogrenci_soyadi = ogrenci_soyadi
+        self.ogrenci_sinif = ogrenci_sinif
+
+class Soru(Ogrenci):
+
+    def __init__(self, ogrenci):
+        self.ogrenci_adi = ogrenci.ogrenci_adi
+        self.ogrenci_soyadi = ogrenci.ogrenci_soyadi
+        self.ogrenci_sinif = ogrenci.ogrenci_sinif
+
+    def net_sayisi(self, dogru_sayisi, yanlis_sayisi):
+        toplam_net_sayisi = (dogru_sayisi) - (0.25 * yanlis_sayisi)
+        return toplam_net_sayisi
+
+    def hesapla(self, toplam_net_sayisi):
+        ogrenci_puan = toplam_net_sayisi * 2
+        return print(ogrenci_puan, self.ogrenci_adi, self.ogrenci_soyadi, self.ogrenci_sinif)
+
+ogrenci1 = Ogrenci("U", "C", 12)
+ogrenci1Net = Soru(ogrenci1)
+
+ogrenci1Net.hesapla(ogrenci1Net.net_sayisi(48, 2))
+
+"""
+Soru 2:
+Insan isimli bir sınıf tanımlayınız.
+Bütün constructor parametreleri default değerlere sahip olacak, default contructor (__init__) içinde belirlenecektir. 
+Bu değerler; ad, soyad, yas, ulke, sehir olacaktır.Ek olarak yetenekler isimli bir boş dizi init fonksiyonu içinde 
+tanımlanacaktır.
+kisi_bilgileri isimli fonksiyon ile init fonksiyonu içinde belirlenen kisi bilgileri return’le döndürülecektir.
+yetenek_ekle isimli fonksiyon ile init fonksiyonu içinde belirlenen yetenekler dizisine yetenekler eklenecektir.
+*Bu classtan belirtilen bilgileri içeren bir nesne tanımlayınız.
+*Tanımlanan nesneye yetenek ekleyiniz. (Bisiklete binmek, Python vs.)
+*kisi_bilgileri fonksiyonu ile bu bilgileri console ekranında gösteriniz.
+"""
+
+class Insan:
+
+    def __init__(self, ad, soyad, yas, ulke, sehir):
+        self.ad = ad
+        self.soyad = soyad
+        self.yas = yas
+        self.ulke = ulke
+        self.sehir = sehir
+        self.yetenek = []
+
+    def kisi_bilgileri(__init__):
+        return print(__init__.ad, __init__.soyad, __init__.yas, __init__.ulke, __init__.sehir, __init__.yetenek)
+
+    def yetenek_ekle(__init__, yetenekler):
+        return __init__.yetenek.append(yetenekler)
+
+insan1 = Insan("U", "C", 25, "TR", "IST")
+
+insan1.yetenek_ekle("Python")
+
+insan1.kisi_bilgileri()
